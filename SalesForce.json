@@ -1,0 +1,166 @@
+{
+    "schema": {
+        "options": {},
+        "crud_objects": {
+            "Contacts": {
+                "operations": {
+                    "ContactsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/services/data/v52.0/query"
+                        },
+                        "processing_options": {
+                            "output_field": "records"
+                        },
+                        "query_parameters": {
+                            "q": "SELECT AccountId,LastName,FirstName,Salutation,Name,RecordTypeId,OtherStreet,OtherCity,OtherState,OtherPostalCode,OtherCountry,OtherLatitude,OtherLongitude,OtherGeocodeAccuracy,OtherAddress,MailingStreet,MailingCity,MailingState,MailingPostalCode,MailingCountry,MailingLatitude,MailingLongitude,MailingGeocodeAccuracy,MailingAddress,Phone,Fax,MobilePhone,HomePhone,OtherPhone,AssistantPhone,ReportsToId,Email,Title,Department,AssistantName,LeadSource,Birthdate,Description,OwnerId,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,LastActivityDate,LastCURequestDate,LastCUUpdateDate,LastViewedDate,LastReferencedDate,EmailBouncedReason,EmailBouncedDate,IsEmailBounced,PhotoUrl,Jigsaw,JigsawContactId,IndividualId,Admission_Status1__c,Term_Year__c,Term_Start_Date__c,Term__c,Desired_Starting_Term__c,Term1__c FROM Contact WHERE Admission_Status1__c IN ('Admitted','Matriculated')"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "AccountId",
+                "resources": {
+                    "attributes":  {
+                        "type":  "_:string",
+                        "url":  "_:string"
+                    },
+                    "AccountId":  "string*",
+                    "LastName":  "string*",
+                    "FirstName":  "string*",
+                    "Salutation":  "string*",
+                    "Name":  "string*",
+                    "RecordTypeId":  "string*",
+                    "OtherStreet":  "string*",
+                    "OtherCity":  "string*",
+                    "OtherState":  "string*",
+                    "OtherPostalCode":  "string*",
+                    "OtherCountry":  "string*",
+                    "OtherLatitude":  "string*",
+                    "OtherLongitude":  "string*",
+                    "OtherGeocodeAccuracy":  "string*",
+                    "OtherAddress":  "string*",
+                    "MailingStreet":  "string*",
+                    "MailingCity":  "string*",
+                    "MailingState":  "string*",
+                    "MailingPostalCode":  "string*",
+                    "MailingCountry":  "string*",
+                    "MailingLatitude":  "string*",
+                    "MailingLongitude":  "string*",
+                    "MailingGeocodeAccuracy":  "string*",
+                    "MailingAddress":  {
+                                            "city":  "_:string*",
+                                            "country":  "_:string*",
+                                            "geocodeAccuracy":  "_:string*",
+                                            "latitude":  "_:string*",
+                                            "longitude":  "_:string*",
+                                            "postalCode":  "_:string*",
+                                            "state":  "_:string*",
+                                            "street":  "_:string*"
+                                        },
+                    "Phone":  "string*",
+                    "Fax":  "string*",
+                    "MobilePhone":  "string*",
+                    "HomePhone":  "string*",
+                    "OtherPhone":  "string*",
+                    "AssistantPhone":  "string*",
+                    "ReportsToId":  "string*",
+                    "Email":  "string*",
+                    "Title":  "string*",
+                    "Department":  "string*",
+                    "AssistantName":  "string*",
+                    "LeadSource":  "string*",
+                    "Birthdate":  "string*",
+                    "Description":  "string*",
+                    "OwnerId":  "string*",
+                    "CreatedDate":  "string*",
+                    "CreatedById":  "string*",
+                    "LastModifiedDate":  "string*",
+                    "LastModifiedById": "string*",
+                    "SystemModstamp":  "string*",
+                    "LastActivityDate":  "string*",
+                    "LastCURequestDate":  "string*",
+                    "LastCUUpdateDate":  "string*",
+                    "LastViewedDate":  "string*",
+                    "LastReferencedDate":  "string*",
+                    "EmailBouncedReason":  "string*",
+                    "EmailBouncedDate":  "string*",
+                    "IsEmailBounced":  "boolean*",
+                    "PhotoUrl":  "string*",
+                    "Jigsaw":  "string*",
+                    "JigsawContactId":  "string*",
+                    "IndividualId":  "string*",
+                    "Admission_Status1__c":  "string*",
+                    "Term_Year__c":  "string*",
+                    "Term_Start_Date__c":  "string*",
+                    "Term__c":  "string*",
+                    "Desired_Starting_Term__c":  "string*",
+                    "Term1__c":  "string*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "https://{tenant_id}",
+            "get": {
+                "query_parameters": {
+                },
+                "pagination":{
+                    "mode":"generic",
+                    "path":[],
+                    "params":{
+                        "pageNumber":"{page_number}",
+                        "pageSize":"{page_size}"
+                    }
+                }
+            },
+            "authentication": "custom_post_token",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/api/{api_version}/sites/{site_id}/users?pageSize=1&pageNumber=1"
+            }
+        },
+        "authOptions": {
+            "authUrl": "https://login.salesforce.com/services/oauth2/token",
+            "postData": {
+                "grant_type":"password",
+                "client_id": "{client_id}",
+                "client_secret": "{client_secret}",
+                "username": "{user_name}",
+                "password": "{password}"
+            },
+            "directToken": true,
+            "tokenPath": "access_token",
+            "headerName": "Authorization",
+            "headerTemplate": "Bearer {token}"
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenent URL:",
+                "value": ""
+            },
+            {
+                "name": "client_id",
+                "type": "textbox",
+                "label": "Client ID:",
+                "value": ""
+            },
+            {
+                "name": "client_secret",
+                "type": "textbox",
+                "label": "Client Secret:",
+                "value": ""
+            },
+            {
+                "name": "page_size",
+                "type": "textbox",
+                "label": "Page Size:",
+                "value": "100"
+            }
+        ]
+    }
+}
