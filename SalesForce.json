@@ -108,16 +108,13 @@
                 "pagination":{
                     "mode":"generic",
                     "path":[],
-                    "params":{
-                        "pageNumber":"{page_number}",
-                        "pageSize":"{page_size}"
-                    }
+                    "totalAttribute": "totalSize"
                 }
             },
             "authentication": "custom_post_token",
             "call_handling": "generic",
             "test_connection": {
-                "url": "/api/{api_version}/sites/{site_id}/users?pageSize=1&pageNumber=1"
+                "url": "/services/data/v52.0/query?q=SELECT AccountId FROM Contact&"
             }
         },
         "authOptions": {
@@ -129,6 +126,7 @@
                 "username": "{user_name}",
                 "password": "{password}"
             },
+            "postAsForm": true,
             "directToken": true,
             "tokenPath": "access_token",
             "headerName": "Authorization",
